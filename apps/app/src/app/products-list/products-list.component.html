@@ -1,0 +1,37 @@
+<header class="header">
+    <h1 class="title" data-cy="title">Product List</h1>
+    <nav>
+        <ul class="nav">
+            <li><a routerLink="/add-product"  mat-raised-button color="primary">Add product</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="filter-sort">
+    <mat-chip-list>
+        <ng-container *ngFor="let chip of categoriesChips">
+            <a [routerLink]="['../', chip, 'products']" class="link">
+                <mat-chip class="link-element">{{chip}}</mat-chip>
+            </a>
+        </ng-container>
+    </mat-chip-list>
+    <mat-form-field>
+        <mat-label>Sort by price</mat-label>
+        <mat-select (selectionChange)="sort($event)" disableOptionCentering="true">
+            <mat-option value="asc">Low to High</mat-option>
+            <mat-option value="desc">High to Low</mat-option>
+        </mat-select>
+    </mat-form-field>
+</section>
+<section>
+    <mat-list role="list">
+        <ng-container *ngFor="let product of productsList; trackBy: productId">
+            <mat-list-item>
+                <a [routerLink]="['/product', product.id]" mat-line class="link">{{product.title}}</a>
+                <span>{{product.price}}</span>
+                <button type="button" (click)="removeProduct(product.id)" class="btn">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-list-item>
+        </ng-container>
+    </mat-list>
+</section>

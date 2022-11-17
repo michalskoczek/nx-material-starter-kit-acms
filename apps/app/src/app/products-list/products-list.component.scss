@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+    margin: 20px 30px;
+}
+
+    .nav {
+        display: flex;
+        justify-content: end;
+        list-style: none;
+    }
+}
+
+.filter-sort {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.link {
+    text-decoration: none;
+
+    &-element {
+        cursor: pointer;
+    }
+}
+
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+

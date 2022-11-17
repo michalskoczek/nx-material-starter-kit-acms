@@ -1,0 +1,29 @@
+<header>
+    <h1 class="title">Add Product</h1>
+</header>
+
+<section>
+    <form [formGroup]="form" (ngSubmit)="postProduct()" class="form">
+        <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title">
+        <mat-error *ngIf="fcontrols['title'].errors">Title is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price">
+        <mat-error *ngIf="fcontrols['price'].errors">Price is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+        <mat-error *ngIf="fcontrols['description'].errors">Description is required</mat-error>
+        </mat-form-field>
+        
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+    </form>
+</section>
+
+

@@ -1,0 +1,16 @@
+<header>
+    <h1 class="title">Product List - {{category}}</h1>
+</header>
+<section>
+    <mat-list role="list">
+        <ng-container *ngFor="let product of filterList; trackBy: productId">
+            <mat-list-item>
+                <a [routerLink]="['/product', product.id]" mat-line class="link">{{product.title}}</a>
+                <span>{{product.price}}</span>
+                <button type="button" (click)="removeProduct(product.id)" class="btn">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-list-item>
+        </ng-container>
+    </mat-list>
+</section>
